@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>만조 滿潮 · 제주 탑동 카페</title>
+<meta name="description" content="제주더큰내일센터 1층. 탑동 앞바다가 가장 높이 차오르는 시간에 문을 여는 카페, 만조(滿潮)." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍊</text></svg>" />
+</head>
+<body>
+
+<a class="skip" href="#main">본문 바로가기</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="brand" href="#top">
+      <span class="brand__mark" aria-hidden="true">滿</span>
+      <span class="brand__text">만조<em>MANJO</em></span>
+    </a>
+    <nav class="nav__links" aria-label="주요 메뉴">
+      <a href="#story">소개</a>
+      <a href="#menu">메뉴</a>
+      <a href="#visit">오시는 길</a>
+      <a href="#lab">상상 노트</a>
+      <a href="#hours" class="nav__cta">방문 안내</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="hero__glow"></div>
+    <div class="hero__grain"></div>
+  </div>
+
+  <div class="hero__inner">
+    <p class="eyebrow reveal">제주시 탑동 · 제주더큰내일센터 1층</p>
+    <h1 class="hero__title reveal">
+      <span class="line">바다가 가장 높이</span>
+      <span class="line">차오르는 시간,</span>
+      <span class="line accent">만조 滿潮</span>
+    </h1>
+    <p class="hero__lead reveal">
+      탑동 방파제 너머로 물이 가득 차오르면, 우리는 그날의 첫 잔을 내립니다.<br />
+      제주에서 자란 것들로만 만드는 열여섯 가지의 잔과 접시.
+    </p>
+    <div class="hero__actions reveal">
+      <a class="btn btn--solid" href="#menu">메뉴 보기</a>
+      <a class="btn btn--ghost" href="#visit">공항에서 오시는 길</a>
+    </div>
+
+    <dl class="hero__facts reveal">
+      <div><dt>오늘의 만조</dt><dd id="tideTime">— : —</dd></div>
+      <div><dt>영업</dt><dd>08:00 – 22:00</dd></div>
+      <div><dt>공항에서</dt><dd>차로 15분</dd></div>
+    </dl>
+  </div>
+
+  <div class="hero__wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,64 C240,110 480,10 720,44 C960,78 1200,110 1440,60 L1440,120 L0,120 Z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ TICKER ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>감귤 말차</span><i>◦</i><span>현무암 아인슈페너</span><i>◦</i><span>해녀의 숨비</span><i>◦</i>
+    <span>오름 안개</span><i>◦</i><span>테트라포드 소금 커피</span><i>◦</i><span>오메기 브라우니</span><i>◦</i>
+    <span>감귤 말차</span><i>◦</i><span>현무암 아인슈페너</span><i>◦</i><span>해녀의 숨비</span><i>◦</i>
+    <span>오름 안개</span><i>◦</i><span>테트라포드 소금 커피</span><i>◦</i><span>오메기 브라우니</span><i>◦</i>
+  </div>
+</div>
+
+<!-- ============ STORY ============ -->
+<section class="story section" id="story">
+  <div class="wrap grid2">
+    <div class="story__text">
+      <p class="eyebrow reveal">STORY</p>
+      <h2 class="h2 reveal">현무암 위에 놓인<br />열네 개의 제주</h2>
+      <p class="body reveal">
+        탑동은 원래 바다였습니다. 매립된 땅 위에 세워진 이 동네에는
+        아직도 파도 소리가 남아 있습니다. 만조는 그 소리를 잔에 담는 카페입니다.
+      </p>
+      <p class="body reveal">
+        모든 재료는 제주 안에서 구합니다. 서귀포 노지 감귤, 제주 유기 녹차,
+        우도 땅콩, 구좌 당근, 애월 히비스커스, 그리고 성산의 소금.
+        육지에서 오는 것은 커피 생두와 손님뿐입니다.
+      </p>
+      <ul class="story__points">
+        <li class="reveal"><b>01</b><span>제주 재료 100%<em>커피 생두를 제외한 모든 부재료</em></span></li>
+        <li class="reveal"><b>02</b><span>매일 아침 로스팅<em>하루 3kg, 그날 판매분만</em></span></li>
+        <li class="reveal"><b>03</b><span>1층 전면 통창<em>탑동 방파제와 한라산이 함께 보이는 자리</em></span></li>
+      </ul>
+    </div>
+
+    <figure class="story__art reveal" aria-hidden="true">
+      <svg viewBox="0 0 420 520" class="art">
+        <defs>
+          <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2b8b84"/><stop offset="100%" stop-color="#0d3a3d"/>
+          </linearGradient>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#f6c98a"/><stop offset="60%" stop-color="#ef8b45"/><stop offset="100%" stop-color="#c85f3b"/>
+          </linearGradient>
+        </defs>
+        <rect width="420" height="520" rx="18" fill="url(#sky)"/>
+        <circle cx="300" cy="150" r="52" fill="#fff2dd" opacity=".95"/>
+        <path d="M0 300 Q80 250 150 282 T300 268 T420 292 L420 520 L0 520Z" fill="url(#sea)"/>
+        <path d="M40 300 q60-70 120-72 q70-2 130 72" fill="#1b2224" opacity=".85"/>
+        <g fill="#0f1517" opacity=".9">
+          <path d="M120 430 l34-58 34 58z"/><path d="M190 452 l30-52 30 52z"/><path d="M60 452 l30-52 30 52z"/>
+        </g>
+        <g stroke="#ffffff" stroke-opacity=".35" fill="none" stroke-width="2">
+          <path d="M20 350 q40 12 80 0 t80 0 t80 0 t80 0"/>
+          <path d="M20 380 q40 12 80 0 t80 0 t80 0 t80 0"/>
+        </g>
+      </svg>
+      <figcaption>탑동 앞바다, 만조 무렵</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section class="menu section" id="menu">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow reveal">MENU</p>
+      <h2 class="h2 reveal">이름부터 제주인 것들</h2>
+      <p class="body body--center reveal">
+        메뉴판에 적힌 말들은 전부 제주의 지명, 물때, 바람 이름에서 가져왔습니다.
+        무엇을 시켜야 할지 모르겠다면 <b>시그니처</b> 네 잔부터.
+      </p>
+    </header>
+
+    <div class="menu__tabs reveal" role="tablist" aria-label="메뉴 분류">
+      <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">전체</button>
+      <button class="chip" role="tab" aria-selected="false" data-filter="signature">시그니처</button>
+      <button class="chip" role="tab" aria-selected="false" data-filter="coffee">커피</button>
+      <button class="chip" role="tab" aria-selected="false" data-filter="tea">티 &amp; 에이드</button>
+      <button class="chip" role="tab" aria-selected="false" data-filter="dessert">디저트</button>
+    </div>
+
+    <div class="menu__grid" id="menuGrid"><!-- injected by script.js --></div>
+
+    <p class="menu__note reveal">
+      ※ 모든 음료는 <b>매장 머그 / 개인 텀블러</b> 사용 시 500원 할인됩니다.
+      제주더큰내일센터 구성원은 사원증 제시 시 상시 15% 할인.
+    </p>
+  </div>
+</section>
+
+<!-- ============ VISIT / MAP ============ -->
+<section class="visit section" id="visit">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow reveal">HOW TO COME</p>
+      <h2 class="h2 reveal">제주국제공항에서 오시는 길</h2>
+      <p class="body body--center reveal">
+        공항 도착층에서 나와 택시로 약 15분. 캐리어를 끌고 그대로 오셔도 됩니다.
+        1층 입구 옆에 <b>짐 보관함</b>이 있습니다.
+      </p>
+    </header>
+
+    <div class="visit__layout">
+      <aside class="visit__panel reveal">
+        <div class="route__tabs" role="tablist" aria-label="이동 수단">
+          <button class="route__tab is-active" role="tab" aria-selected="true" data-mode="taxi">택시</button>
+          <button class="route__tab" role="tab" aria-selected="false" data-mode="bus">버스</button>
+          <button class="route__tab" role="tab" aria-selected="false" data-mode="car">렌터카</button>
+        </div>
+
+        <div class="route__panels" id="routePanels">
+          <article class="route__panel is-active" data-mode="taxi">
+            <p class="route__meta"><b>약 15분</b><span>6.2km · 요금 8,000원 내외</span></p>
+            <ol class="route__steps">
+              <li>공항 <b>1층 도착층 게이트 2~4번</b> 앞 택시 승강장으로 나옵니다.</li>
+              <li>기사님께 <b>“탑동 제주더큰내일센터요”</b> 또는 <b>“탑동 광장 쪽이요”</b>라고 말씀하세요.</li>
+              <li>용담 해안도로를 따라 동쪽으로 이동, 용두암을 지나 서부두를 통과합니다.</li>
+              <li>탑동 광장에 내리면 바다를 등지고 정면 건물 <b>1층</b>이 만조입니다.</li>
+            </ol>
+          </article>
+
+          <article class="route__panel" data-mode="bus">
+            <p class="route__meta"><b>약 25~30분</b><span>1,150원 · 시내 방면 간선버스</span></p>
+            <ol class="route__steps">
+              <li>공항 <b>3번 게이트</b> 앞 버스 정류장으로 나옵니다.</li>
+              <li><b>제주시청 · 중앙로 방면 간선버스</b>를 타고 시내 방향으로 이동합니다.</li>
+              <li><b>‘탑동’ 또는 ‘해짓골’</b> 정류장에서 내려 바다 쪽으로 도보 5분.</li>
+              <li>노선은 계절·시간대에 따라 달라지니, <a href="https://bus.jeju.go.kr" target="_blank" rel="noopener">제주버스정보시스템</a>에서 실시간으로 확인하세요.</li>
+            </ol>
+          </article>
+
+          <article class="route__panel" data-mode="car">
+            <p class="route__meta"><b>약 15분</b><span>주차 : 센터 지하 주차장 2시간 무료</span></p>
+            <ol class="route__steps">
+              <li>렌터카 하우스에서 차량 수령 후 <b>공항로</b>로 진입합니다.</li>
+              <li>용담 방면으로 좌회전해 <b>용담 해안도로</b>를 탑니다. 바다를 오른쪽에 두세요.</li>
+              <li>용두암 → 서부두를 지나 <b>탑동로</b>로 직진합니다.</li>
+              <li>내비게이션에 <b>“제주더큰내일센터”</b>를 검색하면 한 번에 옵니다.</li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="visit__addr">
+          <p class="visit__addr-label">주소</p>
+          <p class="visit__addr-main">제주특별자치도 제주시 탑동로 <b>제주더큰내일센터 1층</b></p>
+          <div class="visit__addr-btns">
+            <button class="btn btn--mini" id="copyAddr">주소 복사</button>
+            <a class="btn btn--mini btn--line" id="naviLink" href="https://map.kakao.com/?q=제주더큰내일센터" target="_blank" rel="noopener">지도 앱에서 열기</a>
+          </div>
+          <p class="visit__hint" id="copyHint" role="status"></p>
+        </div>
+      </aside>
+
+      <div class="visit__mapwrap reveal">
+        <div id="map" role="application" aria-label="제주국제공항에서 만조까지의 경로 지도"></div>
+        <div class="map__legend">
+          <span><i class="dot dot--air"></i>제주국제공항</span>
+          <span><i class="dot dot--cafe"></i>만조 (제주더큰내일센터 1층)</span>
+          <span><i class="dash"></i>예상 경로</span>
+        </div>
+        <p class="map__caption">지도를 드래그하고 확대해 보세요. 마커를 누르면 상세 안내가 열립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LAB (아이디어) ============ -->
+<section class="lab section" id="lab">
+  <div class="wrap">
+    <header class="section__head">
+      <p class="eyebrow reveal">IMAGINATION LAB</p>
+      <h2 class="h2 reveal">이 카페가 <span class="u">독특한 것</span>으로<br />성공하기 위한 여덟 가지 상상</h2>
+      <p class="body body--center reveal">
+        아래는 아직 결정되지 않은 것들입니다. 마음에 드는 번호를 골라주시면
+        그 방향으로 페이지 전체를 다시 짜겠습니다. 복수 선택도 좋습니다.
+      </p>
+    </header>
+
+    <div class="lab__grid" id="labGrid"><!-- injected by script.js --></div>
+
+    <div class="lab__pick reveal">
+      <p class="lab__pick-label">고른 아이디어</p>
+      <p class="lab__pick-out" id="labPicked">아직 고르지 않았습니다. 카드를 눌러 담아보세요.</p>
+      <button class="btn btn--solid btn--mini" id="labCopy">고른 번호 복사하기</button>
+      <span class="lab__hint" id="labHint" role="status"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOURS ============ -->
+<section class="hours section" id="hours">
+  <div class="wrap grid2">
+    <div>
+      <p class="eyebrow reveal">VISIT</p>
+      <h2 class="h2 reveal">방문 안내</h2>
+      <table class="hours__table reveal">
+        <tbody>
+          <tr><th scope="row">평일</th><td>08:00 – 22:00</td></tr>
+          <tr><th scope="row">주말 · 공휴일</th><td>09:00 – 22:00</td></tr>
+          <tr><th scope="row">라스트 오더</th><td>21:30</td></tr>
+          <tr><th scope="row">정기 휴무</th><td>매월 첫째 주 화요일</td></tr>
+          <tr><th scope="row">좌석</th><td>홀 48석 · 창가 바 12석 · 스터디룸 2실</td></tr>
+          <tr><th scope="row">편의</th><td>와이파이 · 콘센트 전 좌석 · 짐 보관함 · 노트북 환영</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="hours__card reveal">
+      <p class="hours__badge">탑동 한정</p>
+      <h3 class="hours__h3">노을 리필</h3>
+      <p class="body">
+        일몰 30분 전부터 문 닫을 때까지, 그날 마신 드립 커피는
+        <b>2,000원에 한 잔 더</b>. 탑동의 노을은 계절마다 시간이 다르니
+        입구의 물때표를 확인해 주세요.
+      </p>
+      <p class="hours__sun">오늘 일몰 <b id="sunsetTime">— : —</b></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <div class="foot__brand">
+      <span class="brand__mark" aria-hidden="true">滿</span>
+      <p>만조 滿潮<em>탑동 앞바다가 가장 높이 차오르는 시간</em></p>
+    </div>
+    <div class="foot__cols">
+      <div>
+        <h4>찾아오기</h4>
+        <p>제주특별자치도 제주시 탑동로<br />제주더큰내일센터 1층</p>
+      </div>
+      <div>
+        <h4>문의</h4>
+        <p>064-000-0000<br />hello@manjo.jeju</p>
+      </div>
+      <div>
+        <h4>소식</h4>
+        <p>@manjo.jeju<br />매주 금요일 물때표 업데이트</p>
+      </div>
+    </div>
+    <p class="foot__copy">© 2026 만조 滿潮 · 이 페이지는 개업 준비를 위한 시안입니다.</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="script.js"></script>
+</body>
+</html>
